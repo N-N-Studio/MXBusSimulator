@@ -1,7 +1,7 @@
-# Mexican Bus Simulator
+# Mex Bus Simulator
 
-Enjoy the bus driving job experience on mexican roads in this simulator game for Windows & Linux.
+Enjoy the bus driving job experience on mexican roads in this simulator game for Windows.
 
-Developing in progress.
+Develop in progress.
 
 @DavidENicolasC
