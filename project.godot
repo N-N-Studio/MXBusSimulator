@@ -10,6 +10,17 @@ config_version=5
 
 [application]
 
-config/name="MXBusRoutes"
+config/name="MX Bus Routes"
+config/name_localized={
+"es_MX": "Rutas de Autobús MX"
+}
+config/description="Disfruta la experiencia de conducir un autobús por rutas mexicanas en este videojuego simulador para Windows."
+config/version="0.0.1.0"
+run/main_scene="uid://bkxc1cm5ykdgn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
