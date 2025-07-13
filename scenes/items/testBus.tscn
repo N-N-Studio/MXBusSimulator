@@ -2,33 +2,46 @@
 
 [ext_resource type="Script" uid="uid://ck5wond71jrah" path="res://scripts/BusController.gd" id="1_ulgdp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1yb4s"]
-size = Vector3(3.95351, 1.55261, 1.60315)
-
 [sub_resource type="BoxMesh" id="BoxMesh_1yb4s"]
 
-[node name="VehicleBody3D" type="VehicleBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yb4s"]
+size = Vector3(3.95351, 2.05075, 1.60315)
+
+[node name="VehicleTest" type="VehicleBody3D"]
 script = ExtResource("1_ulgdp")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.83736, 0, 0, 0, 1.41716, 0, 0, 0, 1.36498, 0, 0, 0)
+mesh = SubResource("BoxMesh_1yb4s")
+skeleton = NodePath("../CharacterBody3D/CollisionShape3D")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448769, -0.0119019, 0.0213013)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106715, 0.00871146, -0.057425)
 shape = SubResource("BoxShape3D_1yb4s")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(3.69141, 0, 0, 0, 1.39902, 0, 0, 0, 1.46034, 0, 0, 0)
-mesh = SubResource("BoxMesh_1yb4s")
-
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.50176, -1.55469, 0.578302)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.28345, -1.32588, 0.578302)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontRightWheel"]
 
 [node name="FrontLeftWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.50176, -1.55469, -0.421698)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.28345, -1.32588, -0.421698)
 
 [node name="BackRightWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20479, -1.55469, 0.578302)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.42311, -1.32588, 0.578302)
 
 [node name="BackLeftWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.20479, -1.55469, -0.421698)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.42311, -1.32588, -0.421698)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5576, 0, 0)
+transform = Transform3D(-4.37114e-08, 1.55294e-22, -1, 3.7907e-15, 1, -1.04027e-23, 1, -3.7907e-15, -4.37114e-08, 2.062, 0, 0)
+
+[node name="RightLight" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.01884, -0.279795, 0.568966)
+spot_range = 3.85165
+spot_angle = 10.8168
+
+[node name="LeftLight" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.01884, -0.279795, -0.431034)
+spot_range = 3.85165
+spot_angle = 10.8168

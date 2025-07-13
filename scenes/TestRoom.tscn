@@ -1,19 +1,31 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkxc1cm5ykdgn"]
 
-[ext_resource type="Texture2D" uid="uid://cfvv3vvc1ju1s" path="res://assets/images/basicTerrainTexture.png" id="1_u8cmh"]
 [ext_resource type="PackedScene" uid="uid://bq4lypvscbhhe" path="res://scenes/items/testBus.tscn" id="2_1ahhd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ahhd"]
-albedo_texture = ExtResource("1_u8cmh")
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_u8cmh"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_qk1ca"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_u8cmh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8cmh"]
 
 [node name="Main" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(18.7968, 0, 0, 0, -9.72499e-07, 1, 0, -22.2482, -4.37114e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_1ahhd")
-mesh = SubResource("QuadMesh_qk1ca")
+[node name="VehicleTest" parent="." instance=ExtResource("2_1ahhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33899, 1.83311, -0.294785)
 
-[node name="VehicleBody3D" parent="." instance=ExtResource("2_1ahhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33899, 2.67005, -0.294785)
+[node name="Terrain" type="Node3D" parent="."]
+transform = Transform3D(8.02424, 0, 0, 0, 1, 0, 0, 0, 8.069, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
+shape = SubResource("HeightMapShape3D_u8cmh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
+mesh = SubResource("PlaneMesh_u8cmh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.93403, 0, 0, 0, 3.36836, 4.77862, 1.05603, 0)
+mesh = SubResource("BoxMesh_u8cmh")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
