@@ -11,7 +11,7 @@
 [node name="Main" type="Node3D"]
 
 [node name="VehicleTest" parent="." instance=ExtResource("2_1ahhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33899, 1.83311, -0.294785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33899, 1.843, -0.294785)
 
 [node name="Terrain" type="Node3D" parent="."]
 transform = Transform3D(8.02424, 0, 0, 0, 1, 0, 0, 0, 8.069, 0, 0, 0)
